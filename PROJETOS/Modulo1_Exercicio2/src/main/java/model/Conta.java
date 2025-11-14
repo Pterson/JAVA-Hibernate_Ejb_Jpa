@@ -1,6 +1,8 @@
-package main.java;
+package model;
 
 import java.io.Serializable;
+
+import model.Cliente; // import correto
 
 public class Conta implements Serializable {
     private static final long serialVersionUID = 1L;
