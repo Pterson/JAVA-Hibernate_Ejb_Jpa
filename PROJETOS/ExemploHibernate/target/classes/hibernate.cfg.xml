@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Configurações de conexão -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/forum?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.format_sql">true</property>
+
+
+        <!-- Use Hikari as connection provider -->
+        <property name="hibernate.connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property>
+
+        <!-- Hikari specific settings -->
+        <property name="hibernate.hikari.minimumIdle">2</property>
+        <property name="hibernate.hikari.maximumPoolSize">10</property>
+        <property name="hibernate.hikari.idleTimeout">30000</property>
+        <property name="hibernate.hikari.connectionTimeout">20000</property>
+
+        <!-- Dialeto do MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Mostra o SQL no console -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Atualiza automaticamente o schema (opcional) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Registra os arquivos de mapeamento -->
+        <mapping resource="entity/Forum.hbm.xml"/>
+        <mapping resource="entity/Usuario.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

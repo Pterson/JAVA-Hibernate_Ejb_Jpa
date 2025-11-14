@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entity.Forum" table="forum" catalog="forum">
+
+        <id name="idforum" type="int">
+            <column name="IDFORUM"/>
+            <generator class="assigned"/>
+        </id>
+
+        <property name="assunto" type="string">
+            <column name="ASSUNTO" length="45"/>
+        </property>
+
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="45"/>
+        </property>
+
+        <set name="usuarios" inverse="true" cascade="all">
+            <key column="IDFORUM"/>
+            <one-to-many class="entity.Usuario"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

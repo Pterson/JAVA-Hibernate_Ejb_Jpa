@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- DRIVER MYSQL 8 -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <!-- URL DO BANCO (DEV) -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/banco?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC
+        </property>
+
+        <!-- CREDENCIAIS -->
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">SUA_SENHA_AQUI</property>
+
+        <!-- DIALECT MYSQL 8 -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQL8Dialect
+        </property>
+
+        <!-- LOGS -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- ESTRATÉGIA DE CRIAÇÃO/UPDATE DAS TABELAS -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- MAPEAMENTOS XML -->
+        <mapping resource="entity/Cliente.hbm.xml"/>
+        <mapping resource="entity/Conta.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
