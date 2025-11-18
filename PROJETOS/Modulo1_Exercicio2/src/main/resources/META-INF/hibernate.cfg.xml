@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.2"
-             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
-<persistence-unit name="Forum" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>model.Forum</class>
-    <class>model.Usuario</class>
+<hibernate-configuration>
+    <session-factory>
 
-    <properties>
-        <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/forum01"/>
-        <property name="javax.persistence.jdbc.user" value="root"/>
-        <property name="javax.persistence.jdbc.password" value="root"/>
+        <!-- Conexão com MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/banco?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
 
-        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-        <property name="hibernate.hbm2ddl.auto" value="update"/>
-        <property name="hibernate.show_sql" value="true"/>
-        <property name="hibernate.format_sql" value="true"/>
-    </properties>
-</persistence-unit>
-</persistence>
+        <!-- Dialeto do banco -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Pool de conexões -->
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- Exibir SQL no console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Gerenciamento de schema -->
+        <property name="hibernate.hbm2ddl.auto">none</property>
+
+        <!-- Mapeamentos -->
+        <mapping resource="entity/Cliente.hbm.xml"/>
+        <mapping resource="entity/Conta.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Conexão com MySQL -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/banco?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- Dialeto do banco -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Pool de conexões -->
+        <property name="hibernate.connection.pool_size">1</property>
+
+        <!-- Exibir SQL no console -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Gerenciamento de schema -->
+        <property name="hibernate.hbm2ddl.auto">none</property>
+
+        <!-- Mapeamentos -->
+        <mapping resource="entity/Cliente.hbm.xml"/>
+        <mapping resource="entity/Conta.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

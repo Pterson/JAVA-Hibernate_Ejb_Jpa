@@ -1,8 +1,6 @@
-package main.java.helper;
+package model;
 
 import javax.persistence.EntityManager;
-import model.Forum;
-import model.Usuario;
 
 public class ForumHelper {
     private EntityManager em;
@@ -11,7 +9,7 @@ public class ForumHelper {
         this.em = em;
     }
 
-    public String salvar(Forum forum){
+    public String salvar(main.java.model.Forum forum){
         try{
             em.getTransaction().begin();
             em.persist(forum);
@@ -22,9 +20,9 @@ public class ForumHelper {
         }
     }
 
-    public String adicionarUsuario(int idForum, Usuario usuario){
+    public String adicionarUsuario(int idForum, main.java.model.Usuario usuario){
         try {
-            Forum f = em.find(Forum.class, idForum);
+            main.java.model.Forum f = em.find(main.java.model.Forum.class, idForum);
             usuario.setForum(f);
             f.getUsuarios().add(usuario);
             em.getTransaction().begin();
