@@ -1,8 +1,11 @@
-package main.java.bean;
+package bean;
 
 // IMPORT CORRETO - mesmo nível de pacote
 import interfaces.FolhaPagamento;
 import java.io.Serializable;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 
 public class FolhaPagamentoBean implements FolhaPagamento, Serializable {
     private static final long serialVersionUID = 1L;

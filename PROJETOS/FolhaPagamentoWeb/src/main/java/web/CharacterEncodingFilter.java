@@ -1,7 +1,12 @@
-package main.java.web;
+package web;
 
 import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import javax.servlet.*;
 import java.io.IOException;
+import java.util.logging.Filter;
+import java.util.logging.LogRecord;
 
 public class CharacterEncodingFilter implements Filter {
 
@@ -18,4 +23,9 @@ public class CharacterEncodingFilter implements Filter {
 
     @Override
     public void destroy() {}
+
+    @Override
+    public boolean isLoggable(LogRecord record) {
+        return false;
+    }
 }

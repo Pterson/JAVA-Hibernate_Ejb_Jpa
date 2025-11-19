@@ -1,14 +1,17 @@
-package main.java.web;
+package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-// IMPORTS CORRETOS
 import bean.FolhaPagamentoBean;
 import interfaces.FolhaPagamento;
 
@@ -18,7 +21,6 @@ public class ServletFolha extends HttpServlet {
 
     private FolhaPagamento fp = new FolhaPagamentoBean();
 
-    // ... resto do código igual ao anterior
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
