@@ -5,19 +5,17 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- METADADOS DO PROJETO -->
     <groupId>br.com.ead</groupId>
     <artifactId>calculadora</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>  <!-- ⬅️ IMPORTANTE: Mude para WAR -->
+    <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- DEPENDÊNCIAS DO PROJETO -->
     <dependencies>
         <!-- Payara Micro - Container EJB + Web -->
         <dependency>
